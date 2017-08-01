@@ -1,0 +1,31 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  background-color: #f45642;
+  margin: 0px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.row {
+
+}
+
+.col {
+  background-color: #fff;
+  display: inline-block;
+  font-size: 40px;
+  height: 80px;
+  margin-top: 2px;
+  padding: 10px;
+  padding-top: 25px;
+  text-align: center;
+  width: 80px;
+}
+
+button {
+  font-size: 30px;
+  margin-top: 20px;
+  padding: 10px;
+}
