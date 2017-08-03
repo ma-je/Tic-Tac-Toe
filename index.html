@@ -10,34 +10,71 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+
     </head>
-    <body class="container-fluid">
+
+    <!--<body onload=startGame()>-->
+
       <h1>Tic Tac Toe</h1>
 
+      <div id="message"> message</div>
+
+<div class= "gameBoard">
       <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
+        <div class="cell" id="square1"></div>
+        <div class="cell" id="square2"></div>
+        <div class="cell" id="square3"></div>
       </div>
 
       <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
+        <div class="cell" id="square4"></div>
+        <div class="cell" id="square5"></div>
+        <div class="cell" id="square6"></div>
       </div>
 
       <div class="row">
-        <div class="col"></div>
-        <div class="col"></div>
-        <div class="col"></div>
+        <div class="cell" id="square7"></div>
+        <div class="cell" id="square8"></div>
+        <div class="cell" id="square9"></div>
       </div>
+</div>
+    <form id="sign-up">
+      <fieldset>
+        <legend>Sign up!</legend>
+        <input type="text" name="credentials[email]" value="" placeholder="email">
+        <input type="password" name="credentials[password]" value="" placeholder="password">
+        <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+        <input type="submit" name="submit" value="Sign up!">
+      </fieldset>
+    </form>
 
-    <div>
-      <button id="reset">New Game</button>
-    </div>
+    <form id="sign-in">
+      <fieldset>
+        <legend>Sign in!</legend>
+        <input type="text" name="credentials[email]" value="" placeholder="email">
+        <input type="password" name="credentials[password]" value="" placeholder="password">
+        <input type="submit" name="submit" value="Sign in!">
+      </fieldset>
+    </form>
 
+    <form id="sign-out">
+      <fieldset>
+        <legend>Sign out</legend>
+        <input type="text" name="credentials[email]" value="" placeholder="email">
+        <input type="password" name="credentials[password]" value="" placeholder="password">
+        <input type="submit" name="submit" value="Sign out">
+      </fieldset>
+    </form>
 
-
+    <form id="change-password">
+      <fieldset>
+        <legend>Change Password</legend>
+        <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+        <input type="password" name="passwords[new]" value="" placeholder="New Password">
+        <input type="submit" name="submit" value="Change Password">
+      </fieldset>
+    </form>
 
     </body>
 </html>

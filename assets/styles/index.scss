@@ -3,16 +3,21 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 body {
   background-color: #f45642;
-  margin: 0px;
+  margin: auto;
   margin-top: 10px;
   text-align: center;
 }
 
-.row {
-
+.hidden {
+  display: none;
 }
 
-.col {
+#message {
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+.cell {
   background-color: #fff;
   display: inline-block;
   font-size: 40px;
