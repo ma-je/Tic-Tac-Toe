@@ -12,9 +12,9 @@ body {
   display: none;
 }
 
-#message {
-  font-size: 18px;
-  padding-bottom: 10px;
+#startGame {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .cell {
@@ -30,7 +30,6 @@ body {
 }
 
 button {
-  font-size: 30px;
   margin-top: 20px;
   padding: 10px;
 }

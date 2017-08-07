@@ -22,7 +22,7 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
 
   gameApi.logInUser(data)
-    .then(gameUi.onSuccess)
+    .then(gameUi.signInSuccess)
     .catch(gameUi.onError)
 }
 
@@ -30,21 +30,21 @@ const onSignOut = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
 
-  gameApi.LogOut(data)
+  gameApi.logOut(data)
     .then(gameUi.onSuccess)
     .catch(gameUi.onError)
 }
-const onPasswordChange = function (event) {
+const onpasswordChange = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
 
   gameApi.passwordChange(data)
-    .then(gameUi.onSuccess)
+    .then(gameUi.resetSuccess)
     .catch(gameUi.onError)
 }
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onPasswordChange
+  onpasswordChange
 }

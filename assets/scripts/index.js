@@ -22,7 +22,7 @@ $(() => {
   $('#sign-up').on('submit', gameEvents.onSignUp)
   $('#sign-in').on('submit', gameEvents.onSignIn)
   $('#sign-out').on('submit', gameEvents.onSignOut)
-  $('#change-password').on('submit', gameEvents.onPasswordChange)
+  $('#change-password').on('submit', gameEvents.onpasswordChange)
   // event handlers
   $('#square1, #square2, #square3, #square4, #square5, #square6, #square7, #square8, #square9').on('click', gamePlay.addChar)
 })
