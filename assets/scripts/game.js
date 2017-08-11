@@ -1,155 +1,122 @@
-const addChar = function(event) {}
-/*const winningCombos = [
-  // horizontal wins
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-  // vertical wins
-  [1, 4, 7],
-  [2, 5, 8],
-  [3, 6, 9],
-  // diagonal wins
-  [1, 5, 9],
-  [7, 5, 3]
-]
-const board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-const totalTurns = 0
-const player1
-const player2
-const playerMarker
-const currentPlayer
-const tieCheck
+'use strict'
 
-enterNametoStart()
+$(document).ready(function () {
+  console.log('is this the problem?')
+})
+      // setting the variables
+      // keeping track of turns
+      let turns = 0
+      const square1 = $('#square1')
+      const square2 = $('#square2')
+      const square3 = $('#square3')
+      const square4 = $('#square4')
+      const square5 = $('#square5')
+      const square6 = $('#square6')
+      const square7 = $('#square7')
+      const square8 = $('#square8')
+      const square9 = $('#square9')
 
-function enterNametoStart() {
-  $('#startGame').click(function() {
-      player1 = $('#player1').val()
-      player2 = $('#player2').val()
-      currentPlayer = whoStarts()
-      playerMarker = {
-        x: player1
-        o: player2
-      }
-    }
-  }
+      // click function for game board
+      $('.cell').click(function() {
 
-  function whoStarts() {
-    let randomize = Math.floor((Math.random() * 2) + 1)
-    if (randomize === 1) {
-      alert(player1 + "starts")
-      return "X"
-    } else {
-      alert(player2 + "starts")
-      return "O"
-    }
-  }
-  $('#restartGame').click(function() {
-    location.reload()
-  })
-  $('.cell').('click', '.square:not('.square - X, .square - O ')', function() {
-        let cell = $(this).addClass('square- ' + currentPlayer)
-        let indexOfSquare = $('.cell .square').index(square) //check if should not begameBoard instead of cell
-        totalTurns++
-        writeToBoard()
-        if (isGameOver() {
-            $('#restartGame').show(
-              if isWinner() {
-                alert(playerMarker[currentPlayer] + 'wins the game!')
-              } else {
-                alert('Sorry! Try again')
-              } else switchTurn()
-            }
+        // check with alert to see if works - did!
+        // conditions for horizontal wins
+        if (square1.hasClass('O') && square2.hasClass('O') && square3.hasClass('O') ||
+          square4.hasClass('O') && square5.hasClass('O') && square6.hasClass('O') ||
+          square7.hasClass('O') && square8.hasClass('O') && square9.hasClass('O') ||
+          // conditions for vertical wins
+          square1.hasClass('O') && square4.hasClass('O') && square7.hasClass('O') ||
+          square2.hasClass('O') && square5.hasClass('O') && square8.hasClass('O') ||
+          square3.hasClass('O') && square6.hasClass('O') && square9.hasClass('O') ||
+          // diagonal win possiblilities
+          square1.hasClass('O') && square5.hasClass('O') && square9.hasClass('O') ||
+          square3.hasClass('O') && square5.hasClass('O') && square7.hasClass('O'))
 
-            function writeToBoard() {
-              cell[indexOfSquare] = currentPlayer
-              console.log(cell)
-            }
+        { // if "O wins"
+              alert('O wins') // change to another method for sending this message
+              $('.cell').text('+')
+              $('.cell').removeClass('disable')
+              $('.cell').removeClass('O')
+              $('.cell').removeClass('X')
+        }
+        else if (square1.hasClass('X') && square2.hasClass('X') && square3.hasClass('X') ||
+          square4.hasClass('X') && square5.hasClass('X') && square6.hasClass('X') ||
+          square7.hasClass('X') && square8.hasClass('X') && square9.hasClass('X') ||
 
-            function isWinner() {
-              for (let i = 0; i < winningCombo.length; i++) {
-                let win = winningCombo[i]
-                if (cell)[win[0]] === cell[win[1]] &&
-                  cell[win[1]] === cell[win[2]]) {
-                return cell[win][0]
-              }
-              return false
-            }
+          // vertical wi possiblilities
+          square1.hasClass('X') && square4.hasClass('X') && square7.hasClass('X') ||
+          square2.hasClass('X') && square5.hasClass('X') && square8.hasClass('X') ||
+          square3.hasClass('X') && square6.hasClass('X') && square9.hasClass('X') ||
 
-            function switchTurn() {
-              if (currentPlayer === "X") {
-                currentPlayer = "O"
-              } else {
-                currentPlayer = "X"
-              }
-            }
+          // diagonal wi possiblilities
+          square1.hasClass('X') && square5.hasClass('X') && square9.hasClass('X') ||
+          square3.hasClass('X') && square5.hasClass('X') && square7.hasClass('X'))
+         { // if "X wins"
+              alert('X wins') // change notification method
+              $('.cell').text('+')
+              $('.cell').removeClass('disable')
+              $('.cell').removeClass('O')
+              $('.cell').removeClass('X')
 
-            function isGameOver() {
-              if (totalTurns === 9) {
-                return true
-              }
-              if (isWinner() {
-                  return true
-                }
-                return false
-              }
-            })
-        })
-      /* const checkforWins = function () {
-        let player1 = [] //  [1, 2, 3]
-        let player2 = []
-        if ($('#square1').html() === 'X') {
-          player1.push(1)
-        } else if ($('#square1').html() === 'O') {
-          player2.push(1)
-        }
-        if ($('#square2').html() === 'X') {
-          player1.push(2)
-        } else if ($('#square2').html() === 'O') {
-          player2.push(2)
-        }
-        if ($('#square3').html() === 'X') {
-          player1.push(3)
-        } else if ($('#square3').html() === 'O') {
-          player2.push(3)
-        }
-        if ($('#square4').html() === 'X') {
-          player1.push(4)
-        } else if ($('#square4').html() === 'O') {
-          player2.push(4)
-        }
-        if ($('#square5').html() === 'X') {
-          player1.push(5)
-        } else if ($('#square5').html() === 'O') {
-          player2.push(5)
-        }
-        if ($('#square6').html() === 'X') {
-          player1.push(6)
-        } else if ($('#square6').html() === 'O') {
-          player2.push(6)
-        }
-        if ($('#square7').html() === 'X') {
-          player1.push(7)
-        } else if ($('#square7').html() === 'O') {
-          player2.push(7)
-        }
-        if ($('#square8').html() === 'X') {
-          player1.push(8)
-        } else if ($('#square8').html() === 'O') {
-          player2.push(8)
-        }
-        if ($('#square9').html() === 'X') {
-          player1.push(9)
-        } else if ($('#square9').html() === 'O') {
-          player2.push(9)
-        }
-        for (let i = 0; i < 8; i++) {
-          console.log(player1)
-          if (player1.includes(winningCombo[i])) {
-            console.log('player1 wins')
+        } else if (turns === 9)
+        {
+              alert('Tie Game') // change notificationmethond
+              $('.cell').removeClass('disable')
+              $('.cell').removeClass('O')
+              $('.cell').removeClass('X')
+              turns = 0
+
+        } else if ($(this).hasClass('disable'))
+        {
+          alert('this square is already taken')
+
+        } else if (turns % 2 === 0)
+        {
+          turns++
+          $(this).text('O')
+          $(this).addClass('disable O') //turn has been taken
+
+          if (square1.hasClass('O') && square2.hasClass('O') && square3.hasClass('O') ||
+            square4.hasClass('O') && square5.hasClass('O') && square6.hasClass('O') ||
+            square7.hasClass('O') && square8.hasClass('O') && square9.hasClass('O') ||
+            square1.hasClass('O') && square4.hasClass('O') && square7.hasClass('O') ||
+            square2.hasClass('O') && square5.hasClass('O') && square8.hasClass('O') ||
+            square3.hasClass('O') && square6.hasClass('O') && square9.hasClass('O') ||
+            square1.hasClass('O') && square5.hasClass('O') && square9.hasClass('O') ||
+            square3.hasClass('O') && square5.hasClass('O') && square7.hasClass('O'))
+           {
+             alert('Winner is O!') // change notification method
+             turns = 0
+
           }
+        } else
+        {
+          turns++
+          $(this).text('X')
+          $(this).addClass('disable X')
+          if (
+            square1.hasClass('X') && square2.hasClass('X') && square3.hasClass('X') ||
+            square4.hasClass('X') && square5.hasClass('X') && square6.hasClass('X') ||
+            square7.hasClass('X') && square8.hasClass('X') && square9.hasClass('X') ||
+            square1.hasClass('X') && square4.hasClass('X') && square7.hasClass('X') ||
+            square2.hasClass('X') && square5.hasClass('X') && square8.hasClass('X') ||
+            square3.hasClass('X') && square6.hasClass('X') && square9.hasClass('X') ||
+            square1.hasClass('X') && square5.hasClass('X') && square9.hasClass('X') ||
+            square3.hasClass('X') && square5.hasClass('X') && square7.hasClass('X'))
+          {
+            alert('winner: X') // change notification method
+            turns = 0
+            // reset handler
+          }
+
         }
-      } */
-      module.exports = {
-        addChar
-      }
+
+      })
+        $('#reset').click (function () {
+          $('.cell').addClass('.cell:before')
+          $('#message').addClass('#message:before')
+          $('.cell').removeClass('disable')
+          $('.cell').removeClass('O')
+          $('.cell').removeClass('X')
+          turns = 0
+        })

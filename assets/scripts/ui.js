@@ -10,13 +10,12 @@ const onError = function (error) {
   console.error(error)
 }
 const signInSuccess = function (data) {
-  console.log ('signed in')
+  console.log('signed in')
   app.user = data.user
-
 }
 
-const resetSuccess = function() {
-  console.log (' password changed successfully')
+const resetSuccess = function () {
+  console.log(' password changed successfully')
 }
 module.exports = {
   onSuccess,

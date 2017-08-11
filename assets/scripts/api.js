@@ -1,4 +1,4 @@
-const app = require ('./app.js')
+const app = require('./app.js')
 
 const addUser = function (data) {
   return $.ajax({
