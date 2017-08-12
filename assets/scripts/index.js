@@ -19,7 +19,7 @@ const gamePlay = require('./game.js')
 
 $(() => {
 // event handlers
-  $('.gameBoard').hide()
+  // $('.gameBoard').hide()
   $('#sign-up').on('submit', gameEvents.onSignUp)
   $('#sign-in').on('submit', gameEvents.onSignIn)
   $('#sign-out').on('submit', gameEvents.onSignOut)

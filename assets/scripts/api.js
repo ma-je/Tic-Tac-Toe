@@ -45,10 +45,26 @@ const passwordChange = function (data) {
     data
   })
 }
+// connect with API for new games
+const getGame = function () {
+  // console.log("Let's get started")
+  console.log(app.user.token)
+  return $.ajax({
+    url: app.host + '/games/',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    method: 'POST',
+    success: function (response) {
+      console.log(response)
+    }
 
+  })
+}
 module.exports = {
   addUser,
   logInUser,
   logOut,
-  passwordChange
+  passwordChange,
+  getGame
 }
