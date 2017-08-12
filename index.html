@@ -23,9 +23,6 @@
     <!-- <input id="player1" type="text" placeholder="player X"></input>
     <input id="player2" type="text" placeholder="player O"></input> -->
 
-    <div class="row">
-      <div id="message"></div>
-
         <!--<button id="restartGame" class="btn btn-info btn-sm">Restart Game</button>-->
 
     <div class="gameBoard">
@@ -46,32 +43,51 @@
         <div class="cell" id="square8"></div>
         <div class="cell" id="square9"></div>
       </div>
+
+      <div class="row">
+        <div id="messages"></div>
+
       <footer>
         <button id="reset">restartGame</button>
       </footer>
     </div>
     <form id="sign-up">
-        <input type="text" name="credentials[email]" value="" placeholder="email">
-        <input type="password" name="credentials[password]" value="" placeholder="password">
-        <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+     <fieldset>
+       <legend></legend>
+       <input type="text" name="credentials[email]" value="" placeholder="email">
+       <input type="password" name="credentials[password]" value="" placeholder="password">
+       <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+       <input type="submit" name="submit" value="Sign up!">
+     </fieldset>
+   </form>
 
-    </form>
+   <form id="sign-in">
+     <fieldset>
+       <legend></legend>
+       <input type="text" name="credentials[email]" value="" placeholder="email">
+       <input type="password" name="credentials[password]" value="" placeholder="password">
+       <input type="submit" name="submit" value="Sign in!">
+     </fieldset>
+   </form>
 
-    <form id="sign-in">
-        <input type="text" name="credentials[email]" value="" placeholder="email">
-        <input type="password" name="credentials[password]" value="" placeholder="password">
-        <input type="submit" name="submit" value="Sign in!">
-    </form>
+   <form id="sign-out">
+     <fieldset>
+       <legend></legend>
+       <input type="submit" name="submit" value="Sign out">
+     </fieldset>
+   </form>
 
-    <form id="sign-out">
-        <input type="submit" name="submit" value="Sign out">
-    </form>
+   <form id="change-password">
+     <fieldset>
+       <legend></legend>
+       <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+       <input type="password" name="passwords[new]" value="" placeholder="New Password">
+       <input type="submit" name="submit" value="Change Password">
+     </fieldset>
+   </form>
 
-    <form id="change-password">
-        <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-        <input type="password" name="passwords[new]" value="" placeholder="New Password">
-        <input type="submit" name="submit" value="Change Password">
-    </form>
+   </body>
+</html>
 
   <div class="row">
     <!-- <form>
