@@ -46,7 +46,7 @@ const passwordChange = function (data) {
   })
 }
 // connect with API for new games
-const getGame = function () {
+const createGame = function () {
   // console.log("Let's get started")
   console.log(app.user.token)
   return $.ajax({
@@ -66,5 +66,5 @@ module.exports = {
   logInUser,
   logOut,
   passwordChange,
-  getGame
+  createGame
 }

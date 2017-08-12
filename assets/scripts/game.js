@@ -16,14 +16,15 @@ const square7 = $('#square7')
 const square8 = $('#square8')
 const square9 = $('#square9')
 
-const setMessage = function (msg) {
-  document.getElementById('message').innerText = msg
+const message = function (msg) {
+  alert(msg)
+  //document.getElementById('message').innerText = msg
 }
 // click function for game board
 $('.cell').click(function () {
 // check with alert to see if works - did!
 // conditions for horizontal wins
-let over = true
+// let over = true
 if (square1.hasClass('O') && square2.hasClass('O') && square3.hasClass('O') ||
       square4.hasClass('O') && square5.hasClass('O') && square6.hasClass('O') ||
       square7.hasClass('O') && square8.hasClass('O') && square9.hasClass('O') ||
@@ -36,8 +37,8 @@ if (square1.hasClass('O') && square2.hasClass('O') && square3.hasClass('O') ||
       square3.hasClass('O') && square5.hasClass('O') && square7.hasClass('O'))
 // if true, alert that "O wins"
 {
-  message('O wins') // change to another method for sending this message
-  over = true
+  //message('O wins') // change to another method for sending this message
+  // over = true
 
     $('.cell').text('+')
     $('.cell').removeClass('disable')
@@ -57,7 +58,7 @@ if (square1.hasClass('O') && square2.hasClass('O') && square3.hasClass('O') ||
       square3.hasClass('X') && square5.hasClass('X') && square7.hasClass('X')) // if "X wins"
   {
     message('X wins') // change notification method
-    over = true
+    // let over = true
 
     $('.cell').text('+')
     $('.cell').removeClass('disable')
@@ -65,7 +66,7 @@ if (square1.hasClass('O') && square2.hasClass('O') && square3.hasClass('O') ||
     $('.cell').removeClass('X')
   }
     // check for "cat's game --tie games"
-  else if (turns === 9) {
+  else if (turns === 8) {
     message('Tie Game') // change notificationmethond
     $('.cell').removeClass('disable')
     $('.cell').removeClass('O')
@@ -89,8 +90,9 @@ if (square1.hasClass('O') && square2.hasClass('O') && square3.hasClass('O') ||
         square3.hasClass('O') && square6.hasClass('O') && square9.hasClass('O') ||
         square1.hasClass('O') && square5.hasClass('O') && square9.hasClass('O') ||
         square3.hasClass('O') && square5.hasClass('O') && square7.hasClass('O')) {
-        alert('Winner is O!') // change notification method
-        let over = true
+        message('O wins')
+        //alert('Winner is O!') // change notification method
+        // let over = true
         // set the turns back to 0
         turns = 0
       }
@@ -111,7 +113,7 @@ if (
   square1.hasClass('X') && square5.hasClass('X') && square9.hasClass('X') ||
   square3.hasClass('X') && square5.hasClass('X') && square7.hasClass('X')) {
   message('winner: X') // change notification method
-  over = true
+  // let over = true
     turns = 0
 }
 } // closing line 23
