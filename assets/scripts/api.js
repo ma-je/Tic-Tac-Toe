@@ -1,5 +1,5 @@
 const app = require('./app.js')
-
+// to sign up
 const addUser = function (data) {
   return $.ajax({
     url: app.host + '/sign-up',
@@ -12,6 +12,7 @@ const addUser = function (data) {
       }
     }})
 }
+// to log in
 const logInUser = function (data) {
   return $.ajax({
     url: app.host + '/sign-in',
@@ -24,7 +25,7 @@ const logInUser = function (data) {
     }
   })
 }
-// to finish const signout = function (data) {
+// to request logout
 const logOut = function () {
   return $.ajax({
     url: app.host + '/sign-out/' + app.user.id,
@@ -34,7 +35,7 @@ const logOut = function () {
     method: 'DELETE'
   })
 }
-
+// change password
 const passwordChange = function (data) {
   return $.ajax({
     url: app.host + '/change-password/' + app.user.id,
@@ -48,19 +49,29 @@ const passwordChange = function (data) {
 // connect with API for new games
 const createGame = function () {
   // console.log("Let's get started")
-  console.log(app.user.token)
   return $.ajax({
     url: app.host + '/games/',
+    method: 'POST',
     headers: {
       Authorization: 'Token token=' + app.user.token
-    },
-    method: 'POST',
-    success: function (response) {
-      console.log(response)
     }
-
   })
 }
+
+//
+//   })
+// }
+//
+// // index - get games associated with user
+// const index = function () {
+//   return $.ajax({
+//     url: app.host + '/users',
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=$TOKEN'
+//     }
+//   })
+
 module.exports = {
   addUser,
   logInUser,

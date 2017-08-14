@@ -42,9 +42,16 @@ const onpasswordChange = function (event) {
     .then(gameUi.resetSuccess)
     .catch(gameUi.onError)
 }
+const onCreateGame = function (event) {
+  gameApi.createGame()
+    .then(gameUi.onCreateGameSuccess)
+    .catch(gameUi.createGameError)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onpasswordChange
+  onpasswordChange,
+  onCreateGame
 }
