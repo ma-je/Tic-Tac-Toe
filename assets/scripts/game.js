@@ -17,6 +17,7 @@ function setMessage (msg) {
 }
 // clicks on squares trigger nextMove (click events in html (onClick))
 function nextMove (square) {
+  alert(square)
   if (document.winner !== null) {
     setMessage(document.turn + ' ' + 'already won')
   } else if (square.innerText === '') { // if square is empty
@@ -26,6 +27,7 @@ function nextMove (square) {
     setMessage('Square already taken, pick another')
   }
 }
+
 // function to switch turns between X and O
 function switchTurn () {
   if (checkForWinner(document.turn)) {
@@ -74,5 +76,5 @@ function clearCell (number) {
 }
 
 module.export = {
-  startGame
+  startGame, nextMove
 }
