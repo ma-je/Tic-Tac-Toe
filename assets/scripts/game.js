@@ -2,13 +2,15 @@
 // to dos: need function to check for tie games
 // game API
 // on load start game (html in the body tag onload) to execute this function
+
+document.turn = 'X'
+document.winner = null
 function startGame () {
   for (let i = 1; i <= 9; i++) {
     clearCell(i)
   }
   // set variable
-  document.turn = 'X'
-  document.winner = null
+
   setMessage(document.turn + " get's to start.")
 }
 // function to set messages depending on condition
@@ -17,16 +19,18 @@ function setMessage (msg) {
 }
 // clicks on squares trigger nextMove (click events in html (onClick))
 function nextMove (square) {
-  alert(square)
+  console.log(square)
   if (document.winner !== null) {
     setMessage(document.turn + ' ' + 'already won')
-  } else if (square.innerText === '') { // if square is empty
-    square.innerText = document.turn
+  } else if (square.target.innerText === '') { // if square is empty
+    square.target.innerText = document.turn
+    console.log(document.turn)
     switchTurn()
   } else {
     setMessage('Square already taken, pick another')
   }
 }
+$('.square').on('click', nextMove)
 
 // function to switch turns between X and O
 function switchTurn () {
