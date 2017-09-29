@@ -14,7 +14,7 @@ const onSignUp = function (event) {
   const data = getFormFields(this)
 
   gameApi.addUser(data)
-    .then(gameUi.onSuccess)
+    .then(gameUi.onSignUpSuccess)
     .catch(gameUi.onError)
 }
 const onSignIn = function (event) {
@@ -22,7 +22,7 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
 
   gameApi.logInUser(data)
-    .then(gameUi.signInSuccess)
+    .then(gameUi.onsignInSuccess)
     .catch(gameUi.onError)
 }
 

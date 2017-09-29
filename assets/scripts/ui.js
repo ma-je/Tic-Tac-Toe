@@ -5,21 +5,38 @@ const app = require('./app.js')
 const gameEvents = require('./events.js')
 const gamePlay = require('./game.js')
 
-const onSuccess = function () {
-  console.log('Signed up')
+const onSignUpSuccess = function () {
+ console.log('Signed up')
+  $('#sign-up').hide()
+  $('#sign-in').show()
+  $('#sign-up input').not('.submit-button').val('')
 }
 const onError = function (error) {
   console.error(error)
+  $('#suError').show()
+  $('#siError').show()
+  $('#sign-up input').not('.submit-button').val('')
 }
-const signInSuccess = function (data) {
+const onsignInSuccess = function (data) {
   console.log('signed in')
   app.user = data.user
-  //gameEvents.onCreateGame(event)
+  $('#sign-in input').not('.submit-button').val('')
+  $('#sign-out').show()
+  // $('.gameBoard').show()
+  $('#sign-in').hide()
 }
 
+// const onSignOutSuccess = function (data) {
+//   // console.log(data)
+//   // console.log('signed out')
+//   $('#sign-out').hide()
+//   $('#sign-in').show()
+
+// reset the password
 const resetSuccess = function () {
-  console.log(' password changed successfully')
+  // console.log(' password changed successfully')
 }
+// gameEvents.onCreateGame(event)
 const onCreateGameSuccess = function (data) {
   app.game = data.game
   app.game.id = data.game.id
@@ -34,9 +51,10 @@ const createGameError = function (error) {
 }
 
 module.exports = {
-  onSuccess,
+  onSignUpSuccess,
   onError,
-  signInSuccess,
+  onsignInSuccess,
+  // onSignOutSuccess,
   resetSuccess,
   onCreateGameSuccess,
   createGameError

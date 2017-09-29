@@ -12,6 +12,10 @@ As a beginning developer, I found this project challenging for several reasons i
 
 I began with the wireframes, which shifted considerably from conception to final product. I started by playing the game on paper to simulate user experience. This helped me to think about the various data structures that I could use. I got stuck at various stages of the project and consulted a number of resources (class materials, google, books, consultants, and classmates). Utlizing open source information to learn from, I utilized these resources to help me construct codes that I understand and can explain, given my current level of knowledge. I intend to return to this project to improve the code as I gain more knowledge and experience using the concepts involved.
 
-I used the browser template provided by General Assembly, Boston as part of the technologies used to complete this project. The link to the wireframes can be found here (http://mariaje.imgur.com/all/). The game url can be found here.
+I used the browser template provided by General Assembly, Boston as part of the technologies used to complete this project. The link to the wireframes can be found here
+https://imgur.com/5umexo6
+https://imgur.com/Y62F6W0.
+
+ The game url can be found here.
 
 Working on this project helped me to understand the concepts covered in class and in the readings. It's a good learning experience.

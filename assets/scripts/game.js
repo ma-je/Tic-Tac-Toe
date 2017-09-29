@@ -1,138 +1,78 @@
 'use strict'
-
-$(document).ready(function () {
-  // console.log('is this the problem?')
-})
-// setting the variables
-// keeping track of turns
-let turns = 1
-let over
-let index
-let value
-// let cell
-// const squares = $('.cell')
-// const pushCell = function () {
-//   cell = ($(squares).text()
-//     .toLowerCase()
-//     .split('')
-//   )
-//   return cell
-// }
-const messages = $('#messages')
-const square1 = $('#square1')
-const square2 = $('#square2')
-const square3 = $('#square3')
-const square4 = $('#square4')
-const square5 = $('#square5')
-const square6 = $('#square6')
-const square7 = $('#square7')
-const square8 = $('#square8')
-const square9 = $('#square9')
-
-// click function for game board
-//$('.cell').on('click',
-
-const startGame = function () {
-
- // all possible winning conditions for O and X
-// come back and create functions to check for wins
-// conditions for horizontal wins
-if (square1.hasClass('O') && square2.hasClass('O') && square3.hasClass('O') ||
-          square4.hasClass('O') && square5.hasClass('O') && square6.hasClass('O') ||
-          square7.hasClass('O') && square8.hasClass('O') && square9.hasClass('O') ||
-          // conditions for vertical wins
-          square1.hasClass('O') && square4.hasClass('O') && square7.hasClass('O') ||
-          square2.hasClass('O') && square5.hasClass('O') && square8.hasClass('O') ||
-          square3.hasClass('O') && square6.hasClass('O') && square9.hasClass('O') ||
-          // diagonal win possiblilities
-          square1.hasClass('O') && square5.hasClass('O') && square9.hasClass('O') ||
-          square3.hasClass('O') && square5.hasClass('O') && square7.hasClass('O'))
-
-{ // set message to "O wins" if true then clear board to play next game
-messages.html('O wins') // change to another method for sending this message
-$('.cell').text('')
-$('.cell').removeClass('disable')
-$('.cell').removeClass('O')
-$('.cell').removeClass('X')
-//over = true
-} // test with "X's"
-else if (square1.hasClass('X') && square2.hasClass('X') && square3.hasClass('X') ||
-          square4.hasClass('X') && square5.hasClass('X') && square6.hasClass('X') ||
-          square7.hasClass('X') && square8.hasClass('X') && square9.hasClass('X') ||
-          square1.hasClass('X') && square4.hasClass('X') && square7.hasClass('X') ||
-          square2.hasClass('X') && square5.hasClass('X') && square8.hasClass('X') ||
-          square3.hasClass('X') && square6.hasClass('X') && square9.hasClass('X') ||
-          square1.hasClass('X') && square5.hasClass('X') && square9.hasClass('X') ||
-          square3.hasClass('X') && square5.hasClass('X') && square7.hasClass('X'))
-{ // if X wins set message to "X wins"
-messages.html('X wins') // change notification method
-$('.cell').text('')
-$('.cell').removeClass('disable')
-$('.cell').removeClass('O')
-$('.cell').removeClass('X')
-// over = true
-// if neither x nor o wins - game is tied (cat's game)
-// check for "cat's gameEvents" if turns === 9, will have to click twice to get message - try changing turns to 8
-  } else if (turns === 9)
-{
-messages.html('Tie Game') // change notification methond
-$('.cell').removeClass('disable')
-$('.cell').removeClass('O')
-$('.cell').removeClass('X')
-turns = 0
-// over = true
-  } else if ($(this).hasClass('disable')) {
-    messages.html('this square is already taken')
-  } else if (turns % 2 === 0) {
-    turns++
-    $(this).text('O')
-    $(this).addClass('disable O') // turn has been taken
-// check for winning condition
-    if (square1.hasClass('O') && square2.hasClass('O') && square3.hasClass('O') ||
-            square4.hasClass('O') && square5.hasClass('O') && square6.hasClass('O') ||
-            square7.hasClass('O') && square8.hasClass('O') && square9.hasClass('O') ||
-            square1.hasClass('O') && square4.hasClass('O') && square7.hasClass('O') ||
-            square2.hasClass('O') && square5.hasClass('O') && square8.hasClass('O') ||
-            square3.hasClass('O') && square6.hasClass('O') && square9.hasClass('O') ||
-            square1.hasClass('O') && square5.hasClass('O') && square9.hasClass('O') ||
-            square3.hasClass('O') && square5.hasClass('O') && square7.hasClass('O'))
-    {
-      messages.html('Winner is O!') // change notification method
-      turns = 0
-
-}
-} else
-{
-    turns++
-    $(this).text('X')
-    $(this).addClass('disable X')
-    if (
-      square1.hasClass('X') && square2.hasClass('X') && square3.hasClass('X') ||
-            square4.hasClass('X') && square5.hasClass('X') && square6.hasClass('X') ||
-            square7.hasClass('X') && square8.hasClass('X') && square9.hasClass('X') ||
-            square1.hasClass('X') && square4.hasClass('X') && square7.hasClass('X') ||
-            square2.hasClass('X') && square5.hasClass('X') && square8.hasClass('X') ||
-            square3.hasClass('X') && square6.hasClass('X') && square9.hasClass('X') ||
-            square1.hasClass('X') && square5.hasClass('X') && square9.hasClass('X') ||
-            square3.hasClass('X') && square5.hasClass('X') && square7.hasClass('X'))
-    {
-messages.html('winner: X') // change notification method
-      turns = 0
-    }
+// to dos: need function to check for tie games
+// game API
+// on load start game (html in the body tag onload) to execute this function
+function startGame () {
+  for (let i = 1; i <= 9; i++) {
+    clearCell(i)
   }
-}//)
-// reset handler
-$('#reset').on('click', function () {
-  $('.cell').removeClass('disable')
-  $('.cell').html('')
-  $('.cell').removeClass('O')
-  $('.cell').html('')
-  $('.cell').removeClass('X')
-  $('.cell').html('')
-  turns = 0
-})
+  // set variable
+  document.turn = 'X'
+  document.winner = null
+  setMessage(document.turn + " get's to start.")
+}
+// function to set messages depending on condition
+function setMessage (msg) {
+  document.getElementById('message').innerText = msg
+}
+// clicks on squares trigger nextMove (click events in html (onClick))
+function nextMove (square) {
+  if (document.winner !== null) {
+    setMessage(document.turn + ' ' + 'already won')
+  } else if (square.innerText === '') { // if square is empty
+    square.innerText = document.turn
+    switchTurn()
+  } else {
+    setMessage('Square already taken, pick another')
+  }
+}
+// function to switch turns between X and O
+function switchTurn () {
+  if (checkForWinner(document.turn)) {
+    setMessage(document.turn + ', You won!')
+    document.winner = document.turn // winner is either x or o
+    // message letting you know who's turn it is
+  } else if (document.turn === 'X') {
+    document.turn = 'O'
+    setMessage("It's " + document.turn + " 's turn'")
+  } else {
+    document.turn = 'X'
+    setMessage("It's " + document.turn + " 's turn'")
+  }
+}
+// check winning combinations
+function checkForWinner (move) {
+  let result = false // assume it's false to start
+  if (checkRow(1, 2, 3, move) ||
+    checkRow(4, 5, 6, move) ||
+    checkRow(7, 8, 9, move) ||
+    checkRow(1, 4, 7, move) ||
+    checkRow(2, 5, 8, move) ||
+    checkRow(3, 6, 9, move) ||
+    checkRow(1, 5, 9, move) ||
+    checkRow(3, 5, 7, move)) {
+    result = true
+  }
+  return result
+}
+// function to check for win conditions
+function checkRow (a, b, c, move) {
+  let result = false // assume it is false
+  // if a, b, c, = to move (either x or o)
+  if (getCell(a) === move && getCell(b) === move && getCell(c) === move) {
+    result = true
+  }
+  return result
+}
+// get what's in each cell and use as call back in check row function
+function getCell (number) {
+  return document.getElementById('cell' + number).innerText
+}
 
-// This code can be refactored into smaller chuncks to reduce reptition of steps
-module.exports = {
+function clearCell (number) {
+  document.getElementById('cell' + number).innerText = ''
+}
+
+module.export = {
   startGame
 }
