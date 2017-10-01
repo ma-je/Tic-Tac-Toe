@@ -7,13 +7,20 @@ body {
   text-align: center;
 }
 
-.hidden {
-  display: none;
+h1 {
+    color: #ffffff;
 }
 
-#reset {
-  margin-top: 5px;
-  margin-bottom: 5px;
+h3 {
+    color: #ffffff;
+}
+
+#message {
+  color: #ffffff;
+}
+
+.hidden {
+  display: none;
 }
 
 .square {
@@ -30,12 +37,4 @@ body {
 button {
   margin-top: 20px;
   padding: 10px;
-}
-
-#messages {
-  border-style: solid;
-  border-color: white;
-  height: 30px;
-  text-align: center;
-  font-size: 15px;
 }

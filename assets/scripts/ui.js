@@ -11,27 +11,31 @@ const onSignUpSuccess = function () {
   $('#sign-in').show()
   $('#sign-up input').not('.submit-button').val('')
 }
-const onError = function (error) {
+const onSignUpError = function (error) {
   console.error(error)
-  $('#suError').show()
-  $('#siError').show()
+  $('#suError').removeClass('hidden')
   $('#sign-up input').not('.submit-button').val('')
 }
 const onsignInSuccess = function (data) {
   console.log('signed in')
   app.user = data.user
-  $('#sign-in input').not('.submit-button').val('')
   $('#sign-out').show()
-  // $('.gameBoard').show()
   $('#sign-in').hide()
+  $('.gameBoard').show()
+  // $('.gameBoard').show()
+  $('#sign-up').hide()
+  $('#sign-in input').not('.submit-button').val('')
+  $('#message').innerText = ("Let's play!")
 }
 
-// const onSignOutSuccess = function (data) {
-//   // console.log(data)
-//   // console.log('signed out')
-//   $('#sign-out').hide()
-//   $('#sign-in').show()
+  // $('#siError').show()
 
+const onSignOutSuccess = function (data) {
+  // console.log(data)
+  // console.log('signed out')
+  $('#sign-out').hide()
+  $('#sign-in').show()
+}
 // reset the password
 const resetSuccess = function () {
   // console.log(' password changed successfully')
@@ -52,9 +56,9 @@ const createGameError = function (error) {
 
 module.exports = {
   onSignUpSuccess,
-  onError,
+  onSignUpError,
   onsignInSuccess,
-  // onSignOutSuccess,
+  onSignOutSuccess,
   resetSuccess,
   onCreateGameSuccess,
   createGameError

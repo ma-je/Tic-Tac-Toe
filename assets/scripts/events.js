@@ -31,8 +31,8 @@ const onSignOut = function (event) {
   const data = getFormFields(this)
 
   gameApi.logOut(data)
-    .then(gameUi.onSuccess)
-    .catch(gameUi.onError)
+    .then(gameUi.onSignOutSuccess)
+    .catch(gameUi.onSignUpError)
 }
 const onpasswordChange = function (event) {
   event.preventDefault()

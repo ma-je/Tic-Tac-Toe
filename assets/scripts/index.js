@@ -18,7 +18,8 @@ $(() => { // shorthand for document ready
 
 $(() => {
 // event handlers
-  // $('.gameBoard').hide()
+  $('.gameBoard').hide()
+  $('#reset').hide()
   $('#sign-out').hide()
   $('#sign-in').show() // come back and change to hide
   $('#change-password').hide()
