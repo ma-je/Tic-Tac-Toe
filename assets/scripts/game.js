@@ -5,6 +5,8 @@
 
 document.turn = 'X'
 document.winner = null
+let turnCount = 0
+
 function startGame () {
   for (let i = 1; i <= 9; i++) {
     clearCell(i)
@@ -25,6 +27,7 @@ function nextMove (square) {
   } else if (square.target.innerText === '') { // if square is empty
     square.target.innerText = document.turn
     console.log(document.turn)
+    turnCount++
     switchTurn()
   } else {
     setMessage('Square already taken, pick another')
@@ -38,12 +41,18 @@ function switchTurn () {
     setMessage(document.turn + ', You won!')
     document.winner = document.turn // winner is either x or o
     // message letting you know who's turn it is
+  } else if (turnCount === 9) {
+    setMessage("It's a tie game")
   } else if (document.turn === 'X') {
     document.turn = 'O'
     setMessage("It's " + document.turn + " 's turn'")
+    // turnCount++
+    console.log(turnCount)
   } else {
     document.turn = 'X'
     setMessage("It's " + document.turn + " 's turn'")
+    // turnCount++
+    console.log(turnCount)
   }
 }
 // check winning combinations
@@ -79,6 +88,7 @@ function clearCell (number) {
   document.getElementById('cell' + number).innerText = ''
 }
 
+// function checkForTie ()
 module.export = {
   startGame, nextMove
 }
