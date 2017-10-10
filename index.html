@@ -20,74 +20,67 @@
 <body>
   <div class="container-fluid">
     <h1>Tic Tac Toe</h1>
-    <!-- <input id="player1" type="text" placeholder="player X"></input>
-    <input id="player2" type="text" placeholder="player O"></input> -->
+    <h3>Need to clear your mind? How about a game of Tic Tac Toe?</h3>
+    <p>Click the button below to start a new game</p>
+    <div id="message"><h4></h4></div>
+    <div class="sign-up">
+      <form id="sign-up">
+        <fieldset>
+          <legend></legend>
+          <input type="text" name="credentials[email]" value="" placeholder="email">
+          <input type="password" name="credentials[password]" value="" placeholder="password">
+          <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+          <p id="suError" class="error-message hidden"> Please try again. Either your username is taken or passwords don't match </p>
+          <input type="submit" class="submit-button" name="submit" value="Sign up!">
+        </fieldset>
+      </form>
 
-        <!--<button id="restartGame" class="btn btn-info btn-sm">Restart Game</button>-->
+      <form id="sign-in">
+        <fieldset>
+          <legend></legend>
+          <input type="text" name="credentials[email]" value="" placeholder="email">
+          <input type="password" name="credentials[password]" value="" placeholder="password">
+          <input type="submit" class="submit-button" name="submit" value="Sign in!">
+          <p id="siError" class="error-message hidden"> Oops! something went wrong. Try again </p>
+        </fieldset>
+      </form>
 
-    <div class="gameBoard">
-      <div class="row">
-        <div class="cell" id="square1"></div>
-        <div class="cell" id="square2"></div>
-        <div class="cell" id="square3"></div>
-      </div>
+      <form id="sign-out">
+        <fieldset>
+          <legend></legend>
+          <input type="submit" name="submit" value="Sign out">
+        </fieldset>
+      </form>
 
-      <div class="row">
-        <div class="cell" id="square4"></div>
-        <div class="cell" id="square5"></div>
-        <div class="cell" id="square6"></div>
-      </div>
-
-      <div class="row">
-        <div class="cell" id="square7"></div>
-        <div class="cell" id="square8"></div>
-        <div class="cell" id="square9"></div>
-      </div>
-
-      <div class="row">
-        <div id="messages"></div>
-
-      <footer>
-        <button id="reset">New Game</button>
-      </footer>
+      <form id="change-password">
+        <fieldset>
+          <legend></legend>
+          <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+          <input type="password" name="passwords[new]" value="" placeholder="New Password">
+          <input type="submit" name="submit" value="Change Password">
+        </fieldset>
+      </form>
     </div>
-    <form id="sign-up">
-     <fieldset>
-       <legend></legend>
-       <input type="text" name="credentials[email]" value="" placeholder="email">
-       <input type="password" name="credentials[password]" value="" placeholder="password">
-       <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
-       <input type="submit" name="submit" value="Sign up!">
-     </fieldset>
-   </form>
+      <div class="gameBoard">
+        <div class="row">
+          <div class="square" id="cell1"></div>
+          <div class="square" id="cell2"></div>
+          <div class="square" id="cell3"></div>
+        </div>
 
-   <form id="sign-in">
-     <fieldset>
-       <legend></legend>
-       <input type="text" name="credentials[email]" value="" placeholder="email">
-       <input type="password" name="credentials[password]" value="" placeholder="password">
-       <input type="submit" name="submit" value="Sign in!">
-     </fieldset>
-   </form>
+        <div class="row">
+          <div class="square" id="cell4"></div>
+          <div class="square" id="cell5"></div>
+          <div class="square" id="cell6"></div>
+        </div>
 
-   <form id="sign-out">
-     <fieldset>
-       <legend></legend>
-       <input type="submit" name="submit" value="Sign out">
-     </fieldset>
-   </form>
-
-   <form id="change-password">
-     <fieldset>
-       <legend></legend>
-       <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-       <input type="password" name="passwords[new]" value="" placeholder="New Password">
-       <input type="submit" name="submit" value="Change Password">
-     </fieldset>
-   </form>
-
-   </body>
-</html>
+                <div class="row">
+          <div class="square" id="cell7"></div>
+          <div class="square" id="cell8"></div>
+          <div class="square" id="cell9"></div>
+        </div>
+      </div>
+  </div>
 
   <!-- <div class="row">
     <form id="update">
@@ -95,7 +88,15 @@
      <input name="game[cell][value]" type="text" value="x">
      <input name="game[over]" type="text" value="false">
    </form>
- </div> -->>
+ </div> -->
+  <footer>
+    <button id="new-game">New Game</button>
+  </footer>
+
+  <footer>
+    <button id="get-games">Get Games</button>
+  </footer>
+</div>
 </body>
 
 </html>
