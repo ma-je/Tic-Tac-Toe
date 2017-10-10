@@ -48,7 +48,6 @@ const passwordChange = function (data) {
 }
 // connect with API for new games
 const createGame = function () {
-  // console.log("Let's get started")
   return $.ajax({
     url: app.host + '/games/',
     method: 'POST',
@@ -58,24 +57,48 @@ const createGame = function () {
   })
 }
 
-//
-//   })
-// }
-//
-// // index - get games associated with user
-// const index = function () {
-//   return $.ajax({
-//     url: app.host + '/users',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=$TOKEN'
-//     }
-//   })
+const updateGame = function (index, value, over) {
+  console.log('API DATA: Index')
+  // console.log(index.currentTarget.innerHTML)
+  console.log('API DATA: Value')
+  console.log(value)
+  console.log('API DATA: over')
+  console.log(over)
+  return $.ajax({
+    url: app.host + '/games/' + app.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
+        },
+        'over': over
+      }
+    }
+  })
+}
+
+// index - get games associated with user
+const index = function () {
+  return $.ajax({
+    url: app.host + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + app.user.token
+    }
+  })
+}
 
 module.exports = {
   addUser,
   logInUser,
   logOut,
   passwordChange,
-  createGame
+  createGame,
+  updateGame,
+  index
 }

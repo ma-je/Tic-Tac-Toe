@@ -21,7 +21,7 @@
   <div class="container-fluid">
     <h1>Tic Tac Toe</h1>
     <h3>Need to clear your mind? How about a game of Tic Tac Toe?</h3>
-    <div id="message"><h4>Messages goes here</h4></div>
+    <div id="message"><h4></h4></div>
     <div class="sign-up">
       <form id="sign-up">
         <fieldset>
@@ -29,8 +29,8 @@
           <input type="text" name="credentials[email]" value="" placeholder="email">
           <input type="password" name="credentials[password]" value="" placeholder="password">
           <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
-          <input type="submit" class="submit-button" name="submit" value="Sign up!">
           <p id="suError" class="error-message hidden"> Please try again. Either your username is taken or passwords don't match </p>
+          <input type="submit" class="submit-button" name="submit" value="Sign up!">
         </fieldset>
       </form>
 
@@ -89,8 +89,13 @@
    </form>
  </div> -->
   <footer>
-    <button id="reset">New Game</button>
+    <button id="new-game">New Game</button>
   </footer>
+
+  <footer>
+    <button id="get-games">Get Games</button>
+  </footer>
+</div>
 </body>
 
 </html>
