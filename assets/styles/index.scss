@@ -3,28 +3,33 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 body {
   background-color: #f45642;
-  margin: auto;
-  margin-top: 10px;
+  margin: 10px auto auto;
   text-align: center;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+h3 {
+    color: #ffffff;
+}
+
+#message {
+  color: #ffffff;
 }
 
 .hidden {
   display: none;
 }
 
-#reset {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.cell {
+.square {
   background-color: #fff;
   display: inline-block;
   font-size: 40px;
   height: 80px;
   margin-top: 2px;
-  padding: 10px;
-  padding-top: 25px;
+  padding: 25px 10px 10px;
   text-align: center;
   width: 80px;
 }
@@ -32,12 +37,4 @@ body {
 button {
   margin-top: 20px;
   padding: 10px;
-}
-
-#messages {
-  border-style: solid;
-  border-color: white;
-  height: 30px;
-  text-align: center;
-  font-size: 15px
 }
