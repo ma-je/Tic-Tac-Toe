@@ -9,7 +9,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const gameEvents = require('./events.js')// user require with a reference to bundle the file and use it in this file
-console.log(gameEvents)
+// console.log(gameEvents)
 // debugger
 // const gamePlay = require('./game.js')
 
@@ -41,6 +41,7 @@ $(() => {
 // X gets to start
 document.turn = 'X'
 document.winner = null
+
 let turnCount = 0
 let newGame = $('#new-game')
 let index
@@ -51,6 +52,7 @@ newGame.on('click', startGame)
 
 function startGame () {
   document.winner = null
+  turnCount = 0
   for (let i = 1; i <= 9; i++) {
     clearCell(i)
   }
@@ -66,7 +68,7 @@ function setMessage (msg) {
 // clicks on squares trigger nextMove
 function nextMove (square) {
   event.stopPropagation()
-  console.log(square)
+  // console.log(square)
   if (document.winner !== null) {
     setMessage(document.turn + ' ' + 'already won')
   } else if (square.target.innerText === '') { // if square is empty
@@ -79,9 +81,9 @@ function nextMove (square) {
     } else {
       over = false
     }
-    console.log(index - 1)
+    // console.log(index - 1)
     value = document.turn
-    console.log(document.turn)
+    // console.log(document.turn)
     // console.log(gameEvents)
     const gameEvents = require('./events.js')
     gameEvents.onUpdateGame(apiIndex, value, over)
@@ -92,7 +94,7 @@ function nextMove (square) {
     setMessage('This square is already taken, pick another')
   }
 }
-console.log(nextMove)
+// console.log(nextMove)
 $('.square').on('click', nextMove)
 
 // function to switch turns between X and O
@@ -109,12 +111,10 @@ function switchTurn () {
   } else if (document.turn === 'X') {
     document.turn = 'O'
     setMessage("It's " + document.turn + " 's turn'")
-    // turnCount++
     console.log(turnCount)
   } else {
     document.turn = 'X'
     setMessage("It's " + document.turn + " 's turn'")
-    // turnCount++
     console.log(turnCount)
   }
 }

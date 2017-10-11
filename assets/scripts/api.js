@@ -58,12 +58,12 @@ const createGame = function () {
 }
 
 const updateGame = function (index, value, over) {
-  console.log('API DATA: Index')
+  // console.log('API DATA: Index')
   // console.log(index.currentTarget.innerHTML)
-  console.log('API DATA: Value')
-  console.log(value)
-  console.log('API DATA: over')
-  console.log(over)
+  // console.log('API DATA: Value')
+  // console.log(value)
+  // console.log('API DATA: over')
+  // console.log(over)
   return $.ajax({
     url: app.host + '/games/' + app.game.id,
     method: 'PATCH',

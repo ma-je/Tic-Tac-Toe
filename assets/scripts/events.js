@@ -56,10 +56,10 @@ const onCreateGame = function (event) {
 //
 const onUpdateGame = function (apiIndex, value, over) {
 // function onUpdateGame (index, value, over) {
-  console.log('onUpdateGame index = ' + apiIndex)
-  console.log('onUpdateGame value = ' + value)
-  console.log('onUpdateGame over = ' + over)
-  console.log(apiIndex, value, over)
+  // console.log('onUpdateGame index = ' + apiIndex)
+  // console.log('onUpdateGame value = ' + value)
+  // console.log('onUpdateGame over = ' + over)
+  // console.log(apiIndex, value, over)
   gameApi.updateGame(apiIndex, value, over)
     .then(gameUi.onUpdateGameSuccess)
     .catch(gameUi.updateGameError)
