@@ -56,14 +56,17 @@ const createGameError = function (error) {
 }
 const onGetSucess = function (data) {
   console.log(data)
-  //  $('#gameStats').html('<div class="successMessage"> Games Played: ' + data.games.length + '</div>')
+  $('.gameStats').empty()
+  for (let i = 0; i < data.games.length; i++) {
+    $('.gameStats').append('<p>' + 'games played:' + data.games.length + '</p>')
+  }
 }
 // const onGetFailure = function (error) {
 // console.log (error)
-  // }
-  // const onUpdateGameSuccess = function (data) {
-  //   console.log(data)
-  // }
+// }
+// const onUpdateGameSuccess = function (data) {
+//   console.log(data)
+// }
 const updateGameError = function (error) {
   console.log(error)
 }
