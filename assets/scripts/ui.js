@@ -6,9 +6,11 @@ const gameEvents = require('./events.js')
 const gamePlay = require('./index.js')
 
 const onSignUpSuccess = function () {
-  console.log('Signed up')
+  // console.log('Signed up')
   $('#sign-up').hide()
   $('#sign-in').show()
+  $('new-game').hide()
+  $('get-games').hide()
   $('#sign-up input').not('.submit-button').val('')
 }
 const onSignUpError = function (error) {
@@ -17,12 +19,15 @@ const onSignUpError = function (error) {
   $('#sign-up input').not('.submit-button').val('')
 }
 const onsignInSuccess = function (data) {
-  console.log('signed in')
+  // console.log('signed in')
   app.user = data.user
   $('#sign-out').show()
   $('#sign-in').hide()
   // $('.gameBoard').show()
   $('#sign-up').hide()
+  $('#change-password').show()
+  $('#new-game').show()
+  $('#get-games').show()
   $('#sign-in input').not('.submit-button').val('')
   $('#message').innerText = ("Let's play!")
 }
@@ -38,6 +43,7 @@ const onSignOutSuccess = function (data) {
 // reset the password
 const resetSuccess = function () {
   // console.log(' password changed successfully')
+  $('#change-password input').not('.submit-button').val('')
 }
 // gameEvents.onCreateGame(event)
 const onCreateGameSuccess = function (data) {
@@ -46,13 +52,13 @@ const onCreateGameSuccess = function (data) {
   // console.log(data.game.id)
   $('.cell').on('click', gamePlay.startGame)
   $('.gameBoard').show()
-  console.log(data)
-  console.log('game created successfully')
+  // console.log(data)
+  // console.log('game created successfully')
 }
 
 const createGameError = function (error) {
   console.log(error)
-  console.log('something went wrong')
+  // console.log('something went wrong')
 }
 const onGetSucess = function (data) {
   console.log(data)

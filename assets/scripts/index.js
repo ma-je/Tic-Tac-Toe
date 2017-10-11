@@ -25,6 +25,8 @@ $(() => {
   $('#sign-out').hide()
   $('#sign-in').show() // come back and change to hide
   $('#change-password').hide()
+  $('#new-game').hide()
+  $('#get-games').hide()
   $('#sign-up').on('submit', gameEvents.onSignUp)
   $('#sign-in').on('submit', gameEvents.onSignIn)
   $('#sign-out').on('submit', gameEvents.onSignOut)
@@ -111,11 +113,11 @@ function switchTurn () {
   } else if (document.turn === 'X') {
     document.turn = 'O'
     setMessage("It's " + document.turn + " 's turn'")
-    console.log(turnCount)
+    // console.log(turnCount)
   } else {
     document.turn = 'X'
     setMessage("It's " + document.turn + " 's turn'")
-    console.log(turnCount)
+    // console.log(turnCount)
   }
 }
 // check winning combinations
