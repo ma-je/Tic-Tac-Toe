@@ -65,6 +65,7 @@ function setMessage (msg) {
 }
 // clicks on squares trigger nextMove
 function nextMove (square) {
+  event.stopPropagation()
   console.log(square)
   if (document.winner !== null) {
     setMessage(document.turn + ' ' + 'already won')
